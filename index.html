@@ -1,247 +1,199 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Afinación de los Metales — Servicio Profesional</title>
-  <meta name="description" content="Servicio profesional de afinación y mantenimiento para instrumentos de metal (trombón, trompeta, corno, etc.). Mejora la entonación, la respuesta y la proyección del instrumento.">
-  <meta name="robots" content="index,follow">
-  <style>
-    :root{
-      --bg:#0f1724; /* deep night */
-      --card:#0b1220;
-      --accent:#64d2ff; /* light cyan */
-      --muted:#9aa4b2;
-      --glass: rgba(255,255,255,0.03);
-      --radius:14px;
-      --maxw:1100px;
-      color-scheme: dark;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-    }
-    *{box-sizing:border-box}
-    body{margin:0;background:linear-gradient(180deg,#071021 0%, #0b1220 60%);color:#e6eef6;line-height:1.45}
-    .container{max-width:var(--maxw);margin:0 auto;padding:28px}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AfinMetales Pro - Afinación Profesional de Metales Preciosos</title>
+    <meta name="description" content="Servicio profesional de afinación y recuperación de metales preciosos (oro, plata, platino y paladio). Procesos ecológicos, máxima pureza y confidencialidad garantizada.">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset básico y tipografía */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Roboto', sans-serif; color: #333; line-height: 1.6; background: #f9f9f9; }
+        a { text-decoration: none; }
+        img { max-width: 100%; display: block; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-    header{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
-    .brand{display:flex;gap:14px;align-items:center}
-    .logo{width:52px;height:52px;display:grid;place-items:center;border-radius:10px;background:linear-gradient(135deg,var(--accent),#6fe5b3)}
-    .logo svg{width:34px;height:34px}
-    nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-weight:600}
-    nav a:hover{color:var(--accent)}
+        /* Header */
+        header { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: fixed; width: 100%; top: 0; z-index: 1000; }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; }
+        .logo { font-size: 24px; font-weight: 700; color: #B8860B; }
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin-left: 30px; }
+        nav ul li a { color: #333; font-weight: 500; transition: color 0.3s; }
+        nav ul li a:hover { color: #B8860B; }
+        .mobile-menu { display: none; cursor: pointer; }
 
-    .hero{display:grid;grid-template-columns:1fr;gap:26px;align-items:center;padding:34px 0}
-    .hero-inner{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:28px;border-radius:var(--radius);box-shadow:0 6px 30px rgba(2,6,23,0.6)}
-    .eyebrow{display:inline-block;padding:6px 10px;background:var(--glass);border-radius:999px;color:var(--muted);font-weight:600;font-size:13px}
-    h1{font-size:34px;margin:12px 0 8px}
-    p.lead{color:var(--muted);margin:0 0 18px}
-    .cta-row{display:flex;gap:12px;flex-wrap:wrap}
-    .btn{background:linear-gradient(90deg,var(--accent),#8be5ff);border:none;padding:12px 18px;border-radius:12px;color:#042033;font-weight:700;cursor:pointer}
-    .btn.secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--accent)}
+        /* Hero */
+        .hero { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://static.vecteezy.com/system/resources/previews/072/186/915/non_2x/close-up-of-molten-metal-being-poured-from-a-crucible-into-a-mold-during-a-metal-casting-process-in-an-industrial-foundry-setting-photo.jpg') center/cover no-repeat; height: 90vh; display: flex; align-items: center; color: #fff; text-align: center; }
+        .hero-content { max-width: 800px; margin: 0 auto; }
+        .hero h1 { font-size: 48px; margin-bottom: 20px; }
+        .hero p { font-size: 20px; margin-bottom: 40px; }
+        .btn { background: #B8860B; color: #fff; padding: 15px 30px; border-radius: 5px; font-weight: 500; transition: background 0.3s; }
+        .btn:hover { background: #997000; }
 
-    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
-    .card h3{margin:8px 0 6px}
-    .muted{color:var(--muted);font-size:15px}
+        /* Secciones generales */
+        section { padding: 80px 0; }
+        .section-title { text-align: center; font-size: 36px; margin-bottom: 50px; color: #B8860B; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .card { background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); text-align: center; padding: 30px; }
+        .card img { margin-bottom: 20px; border-radius: 8px; }
 
-    /* Process + Testimonials */
-    .split{display:grid;grid-template-columns:1fr 420px;gap:22px;margin-top:36px}
-    .process ol{padding-left:18px;margin:0;color:var(--muted)}
-    .testimonial{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:18px;border-radius:12px}
+        /* Contacto */
+        .contact-form { max-width: 800px; margin: 0 auto; background: #fff; padding: 40px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 500; }
+        input, textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-family: inherit; }
+        textarea { height: 150px; resize: vertical; }
 
-    footer{padding:28px 0;color:var(--muted);display:flex;justify-content:space-between;align-items:center}
-    .links a{color:var(--muted);text-decoration:none;margin-left:12px}
+        /* Footer */
+        footer { background: #333; color: #fff; padding: 40px 0; text-align: center; }
+        .footer-links a { color: #fff; margin: 0 15px; }
 
-    /* Form */
-    form{display:grid;gap:10px}
-    input,textarea,select{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px;border-radius:10px;color:inherit}
-    input:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 6px 20px rgba(100,210,255,0.06)}
-    .small{font-size:13px;color:var(--muted)}
-
-    /* Responsive */
-    @media (max-width:980px){.split{grid-template-columns:1fr}.features{grid-template-columns:repeat(2,1fr)}h1{font-size:28px}}
-    @media (max-width:640px){.features{grid-template-columns:1fr}.nav{display:none}.container{padding:18px}.logo{width:46px;height:46px}}
-
-    /* micro-animations */
-    .btn{transition:transform .14s ease, box-shadow .14s ease}
-    .btn:active{transform:translateY(2px)}
-  </style>
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 36px; }
+            .hero p { font-size: 18px; }
+            nav ul { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: #fff; box-shadow: 0 5px 10px rgba(0,0,0,0.1); }
+            nav ul li { margin: 15px 0; text-align: center; }
+            .mobile-menu { display: block; font-size: 24px; }
+            .section-title { font-size: 30px; }
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
+
     <header>
-      <div class="brand">
-        <div class="logo" aria-hidden="true">
-          <!-- trumpet-like monogram -->
-          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 12c0 0 6-6 14-4" stroke="#042033" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 16c0 0 3-4 10-3" stroke="#042033" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="container header-inner">
+            <div class="logo">AfinMetales Pro</div>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#proceso">Proceso</a></li>
+                    <li><a href="#ventajas">Ventajas</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+                <div class="mobile-menu">☰</div>
+            </nav>
         </div>
-        <div>
-          <div style="font-weight:800">Afinación de los Metales</div>
-          <div class="small">Precisión | Resonancia | Confianza</div>
-        </div>
-      </div>
-      <nav class="nav">
-        <a href="#servicios">Servicios</a>
-        <a href="#proceso">Proceso</a>
-        <a href="#contacto">Contacto</a>
-      </nav>
     </header>
 
-    <main>
-      <section class="hero">
-        <div class="hero-inner">
-          <span class="eyebrow">Servicio profesional</span>
-          <h1>Mejora la afinación y la proyección de tu instrumento de metal</h1>
-          <p class="lead">Realizamos ajustes finos y mantenimiento para trompeta, trombón, corneta y más. Diagnóstico transparente y soluciones pensadas para músicos, bandas y escuelas.</p>
-          <div class="cta-row">
-            <button class="btn" onclick="scrollToSection('contacto')">Solicitar presupuesto</button>
-            <button class="btn secondary" onclick="openFAQ()">Preguntas frecuentes</button>
-          </div>
-
-          <div class="features" id="servicios">
-            <div class="card">
-              <h3>Diagnóstico profesional</h3>
-              <div class="muted">Evaluación acústica y visual para detectar desajustes, fugas o piezas desgastadas.</div>
-            </div>
-            <div class="card">
-              <h3>Ajustes de entonación</h3>
-              <div class="muted">Correcciones mecánicas y ajustes de tubería para mejorar la afinación en todas las regiones del registro.</div>
-            </div>
-            <div class="card">
-              <h3>Mantenimiento y lubricación</h3>
-              <div class="muted">Limpieza, lubricación y recomendaciones para conservar la estabilidad de la afinación a largo plazo.</div>
-            </div>
-          </div>
+    <section id="inicio" class="hero">
+        <div class="container hero-content">
+            <h1>Expertos en Afinación de Metales Preciosos</h1>
+            <p>Recuperamos oro, plata, platino y paladio de residuos industriales, joyería y electrónicos con máxima pureza y procesos responsables.</p>
+            <a href="#contacto" class="btn">Solicitar Cotización</a>
         </div>
-      </section>
+    </section>
 
-      <section class="split">
-        <div class="process">
-          <h2 id="proceso">Cómo trabajamos</h2>
-          <ol>
-            <li><strong>Recepción y entrevista:</strong> Comentarios del músico y breve prueba sonora.</li>
-            <li><strong>Diagnóstico:</strong> Pruebas de entonación con afinador y escucha crítica; inspección mecánica.</li>
-            <li><strong>Ajustes:</strong> Correcciones segmentadas y pruebas iterativas hasta lograr la entonación deseada.</li>
-            <li><strong>Entrega:</strong> Informe con recomendaciones y mantenimiento preventivo.</li>
-          </ol>
-
-          <h3 style="margin-top:18px">¿Para quién es este servicio?</h3>
-          <p class="muted">Músicos solistas, secciones de metal de bandas, conservatorios y aficionados que buscan seguridad en su afinación.</p>
-
-          <h3 style="margin-top:18px">Resultados típicos</h3>
-          <ul class="muted">
-            <li>Mejor coincidencia con el tono de referencia (A-440 u otro estándar).</li>
-            <li>Respuesta más uniforme en todo el registro.</li>
-            <li>Mayor proyección y estabilidad en ensayos y presentaciones.</li>
-          </ul>
-        </div>
-
-        <aside>
-          <div class="testimonial card">
-            <strong>"Recuperé confianza en mi trompeta"</strong>
-            <p class="muted">"El técnico realizó ajustes precisos y ahora la entonación es consistente en toda la escala." — Marina, trompetista</p>
-          </div>
-
-          <div style="height:18px"></div>
-
-          <div class="card">
-            <h4>Precio orientativo</h4>
-            <p class="muted">Servicios desde 35€ (diagnóstico básico). Presupuestos personalizados según instrumento y alcance.</p>
-          </div>
-        </aside>
-      </section>
-
-      <section style="margin-top:32px">
-        <h2>Preguntas frecuentes</h2>
-        <div class="card" style="margin-top:12px">
-          <details>
-            <summary style="cursor:pointer;font-weight:700">¿Cuánto dura un ajuste?</summary>
-            <div class="muted" style="margin-top:8px">Un ajuste completo suele durar entre 30 y 90 minutos, dependiendo del instrumento y la complejidad.</div>
-          </details>
-          <details style="margin-top:10px">
-            <summary style="cursor:pointer;font-weight:700">¿Ofrecen servicio para escuelas o secciones completas?</summary>
-            <div class="muted" style="margin-top:8px">Sí. Ofrecemos tarifas para grupos y visitas en sitio. Contacta para coordinar fechas y equipos.</div>
-          </details>
-        </div>
-      </section>
-
-      <section id="contacto" style="margin-top:36px">
-        <h2>Contacto y presupuesto</h2>
-        <div class="card" style="margin-top:12px">
-          <form id="contactForm" onsubmit="submitForm(event)">
-            <label class="small">Nombre</label>
-            <input type="text" id="name" required placeholder="Tu nombre">
-
-            <label class="small">Email</label>
-            <input type="email" id="email" required placeholder="tu@correo.com">
-
-            <label class="small">Instrumento</label>
-            <select id="instrument" required>
-              <option value="">Selecciona</option>
-              <option>Trompeta</option>
-              <option>Trombón</option>
-              <option>Corno</option>
-              <option>Bombardino</option>
-            </select>
-
-            <label class="small">Mensaje (opcional)</label>
-            <textarea id="message" rows="4" placeholder="Describe el problema o lo que buscas..."></textarea>
-
-            <div style="display:flex;gap:10px;align-items:center;margin-top:8px">
-              <button class="btn" type="submit">Enviar pedido</button>
-              <button type="button" class="btn secondary" onclick="location.href='mailto:info@afinaciondelosmetales.example'">Enviar por email</button>
+    <section id="servicios">
+        <div class="container">
+            <h2 class="section-title">Nuestros Servicios</h2>
+            <div class="grid">
+                <div class="card">
+                    <img src="https://media.istockphoto.com/id/535484810/photo/gold-bars-on-white-background.jpg?s=612x612&w=0&k=20&c=gmjQGSrVRRemRFl7fZrxAEH_K9j9gTJOQmlIoANc56U=" alt="Lingotes de oro">
+                    <h3>Recuperación de Oro</h3>
+                    <p>Extracción y afinación de oro de alta pureza a partir de desechos y residuos.</p>
+                </div>
+                <div class="card">
+                    <img src="https://media.istockphoto.com/id/506120376/photo/rows-of-golden-and-silver-bars.jpg?s=612x612&w=0&k=20&c=BQiDybK6psX-06w3iwyehmIbkZho4PYIkeFhZhgO2rM=" alt="Lingotes de plata y oro">
+                    <h3>Recuperación de Plata y Platino</h3>
+                    <p>Procesos especializados para plata, platino y paladio con resultados óptimos.</p>
+                </div>
+                <div class="card">
+                    <img src="https://metallix.com/wp-content/uploads/2020/12/Carousel-6.png" alt="Laboratorio de análisis">
+                    <h3>Análisis y Valoración</h3>
+                    <p>Análisis preciso en laboratorio propio para determinar el contenido exacto de metales preciosos.</p>
+                </div>
             </div>
-            <p id="formMsg" class="small" style="margin-top:8px;color:var(--muted)"></p>
-          </form>
         </div>
-      </section>
-    </main>
+    </section>
+
+    <section id="proceso" style="background: #fff;">
+        <div class="container">
+            <h2 class="section-title">Nuestro Proceso</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>1. Recepción y Evaluación</h3>
+                    <p>Recibimos su material y realizamos un análisis preliminar gratuito.</p>
+                </div>
+                <div class="card">
+                    <h3>2. Afinación</h3>
+                    <p>Aplicamos técnicas avanzadas para separar y purificar los metales.</p>
+                </div>
+                <div class="card">
+                    <h3>3. Resultados</h3>
+                    <p>Entregamos metales puros o pago según acuerdo, con informe detallado.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ventajas">
+        <div class="container">
+            <h2 class="section-title">Por Qué Elegirnos</h2>
+            <div class="grid">
+                <div class="card">
+                    <img src="https://www.actionmetalsrecyclers.com/wp-content/uploads/2025/08/shutterstock_1011811597-min-768x507.jpg" alt="Proceso ecológico">
+                    <h3>Proceso Ecológico</h3>
+                    <p>Utilizamos métodos responsables que minimizan el impacto ambiental.</p>
+                </div>
+                <div class="card">
+                    <h3>Máxima Recuperación</h3>
+                    <p>Tecnología avanzada para obtener el mayor rendimiento posible.</p>
+                </div>
+                <div class="card">
+                    <h3>Confidencialidad Total</h3>
+                    <p>Trabajamos con discreción absoluta para proteger su información.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" style="background: #f0f0f0;">
+        <div class="container">
+            <h2 class="section-title">Contáctenos</h2>
+            <div class="contact-form">
+                <form action="https://formspree.io/f/tu-id-aqui" method="POST"> <!-- Reemplaza con tu endpoint real o usa Formspree/Mailchimp -->
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel" id="telefono" name="telefono">
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea id="mensaje" name="mensaje" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Enviar Mensaje</button>
+                </form>
+            </div>
+        </div>
+    </section>
 
     <footer>
-      <div class="small">© <span id="year"></span> Afinación de los Metales — Todos los derechos reservados</div>
-      <div class="links">
-        <a href="#privacidad">Política de privacidad</a>
-        <a href="#terminos">Términos</a>
-      </div>
+        <div class="container">
+            <p>&copy; 2026 AfinMetales Pro. Todos los derechos reservados.</p>
+            <div class="footer-links">
+                <a href="#">Política de Privacidad</a>
+                <a href="#">Términos de Servicio</a>
+            </div>
+            <p>Tel: +52 123 456 7890 | Email: info@afinmetalespro.com</p>
+        </div>
     </footer>
-  </div>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    function scrollToSection(id){
-      const el = document.getElementById(id);
-      if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
-    }
-    function openFAQ(){
-      const details = document.querySelectorAll('details');
-      if(details.length) details[0].open = true; window.scrollTo({top:document.querySelector('#proceso').offsetTop - 20, behavior:'smooth'});
-    }
-
-    function submitForm(e){
-      e.preventDefault();
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const instr = document.getElementById('instrument').value;
-      const msgEl = document.getElementById('formMsg');
-      if(!name||!email||!instr){ msgEl.textContent='Por favor completa los campos obligatorios.'; return }
-      // Simula envío (sin backend) — para cumplimiento con Google Ads, evita afirmar resultados imposibles.
-      msgEl.style.color='var(--muted)';
-      msgEl.textContent='Gracias, hemos recibido tu solicitud. Te contactaremos por email con un presupuesto aproximado.';
-      // Reinicia formulario tras 2s para experiencia de demostración
-      setTimeout(()=>{document.getElementById('contactForm').reset();},2000);
-    }
-  </script>
-
-  <!-- Schema.org simple org data -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Organization",
-    "name":"Afinación de los Metales",
-    "description":"Servicio profesional de afinación y mantenimiento para instrumentos de metal.",
-    "url":"https://www.afinaciondelosmetales.example",
-    "contactPoint":[{"@type":"ContactPoint","contactType":"customer service","email":"info@afinaciondelosmetales.example"}]
-  }
-  </script>
+    <script>
+        // Menú móvil simple
+        document.querySelector('.mobile-menu').addEventListener('click', () => {
+            document.querySelector('nav ul').classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
